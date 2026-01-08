@@ -1,0 +1,66 @@
+.header {
+    min-height: 422px;
+    position: relative;
+    color: var(--color-white);
+    display: flex;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/header-bc.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+.header__logo {
+    display: flex;
+    gap: 16px;
+}
+
+.header__logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 33.88px;
+    letter-spacing: 0.145em;
+    color: #FFFFFF;
+}
+
+.header__panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--color-white-60);
+    margin-bottom: 108px;
+}
+
+.header__btn {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.header__title {
+    text-transform: uppercase;
+    font-size: 48px;
+    line-height: 100%;
+    text-align: center;
+}

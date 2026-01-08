@@ -1,0 +1,39 @@
+:root {
+    --primary-text-color: rgb(0, 0, 0);
+    --secondary-text-color: rgb(20, 20, 20);
+    --color-white: rgb(255, 255, 255);
+    --color-white-60: rgba(255, 255, 255, 0.6);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", "Arial", sans-serif;
+    color: var(--primary-text-color);
+    width: 100vw;
+    height: 100vh;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+    font-family: inherit;
+    color: inherit;
+}
+
+a {
+    text-decoration: none;
+    font-family: inherit;
+    color: inherit;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: inherit;
+    padding: 0;
+}
