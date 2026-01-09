@@ -1,19 +1,27 @@
 import "./Header.css";
-import { Logo } from "../Icons/Logo"
+import { Logo } from "../Icons/Logo";
 
-export function Header() {
+export function Header({
+    title,
+    variant = "normal",
+}: {
+    title: string;
+    variant?: "normal" | "tall";
+}) {
     return (
-        <header className="header">
+        <header className={`header header--${variant}`}>
             <div className="container">
                 <div className="header__panel">
-                    <div className="header__logo">
+                    <a className="header__logo" href="/">
                         <Logo />
                         <span className="header__logo-text">Travel</span>
-                    </div>
-                    <button className="header__btn" type="button">Войти</button>
+                    </a>
+                    <a className="header__btn" href="/login">
+                        Войти
+                    </a>
                 </div>
-                <h1 className="header__title">Там, где мир начинается с&nbsp; путешествий</h1>
+                <h1 className="header__title">{title}</h1>
             </div>
         </header>
-    )
+    );
 }

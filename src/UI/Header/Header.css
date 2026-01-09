@@ -1,8 +1,19 @@
 .header {
-    min-height: 422px;
     position: relative;
     color: var(--color-white);
     display: flex;
+}
+
+.header--normal {
+    min-height: 251px;
+}
+
+.header--tall {
+    min-height: 422px;
+}
+
+.header--tall .header__panel {
+    margin-bottom: 108px;
 }
 
 .header::before {
@@ -32,7 +43,8 @@
 
 .header__logo {
     display: flex;
-    gap: 16px;
+    align-items: center;
+    gap: 18px;
 }
 
 .header__logo-text {
@@ -50,7 +62,9 @@
     align-items: center;
     padding-bottom: 30px;
     border-bottom: 1px solid var(--color-white-60);
-    margin-bottom: 108px;
+    margin-bottom: 39px;
+    max-width: 1172px;
+    width: 100%;
 }
 
 .header__btn {

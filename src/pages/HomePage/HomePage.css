@@ -1,0 +1,11 @@
+.posts__wrapper {
+    display: grid;
+}
+
+.posts__list {
+    margin-bottom: 60px;
+}
+
+.posts__btn {
+    margin: 0 auto;
+}

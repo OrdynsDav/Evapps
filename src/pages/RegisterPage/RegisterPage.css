@@ -1,0 +1,9 @@
+.register__wrapper {
+    border: 1px solid #E5E5EA;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 28px;
+    height: 739px;
+}

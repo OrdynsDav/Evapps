@@ -1,8 +1,14 @@
 :root {
-    --primary-text-color: rgb(0, 0, 0);
-    --secondary-text-color: rgb(20, 20, 20);
-    --color-white: rgb(255, 255, 255);
-    --color-white-60: rgba(255, 255, 255, 0.6);
+    --primary-text-color: #000000;
+    --secondary-text-color: #141414;
+    --color-black-8: #000000d9;
+    --color-white: #ffffff;
+    --color-white-2: #F9F9F9;
+    --color-white-60: #ffffff99;
+    --color-gray: #868383;
+    --color-web-orange: #FFA902;
+    --color-alto: #D9D9D9;
+    --color-sunset-orange: #FF4D4F;
 }
 
 *,
@@ -14,11 +20,24 @@
 body {
     font-family: "Poppins", "Arial", sans-serif;
     color: var(--primary-text-color);
-    width: 100vw;
-    height: 100vh;
+    background-color: var(--color-white-2);
+    min-height: 100vh;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
-h1, h2, h3, p {
+main {
+    padding-bottom: 60px;
+}
+
+h1,
+h2,
+h3,
+p {
     margin: 0;
     font-family: inherit;
     color: inherit;
@@ -36,4 +55,23 @@ button {
     cursor: pointer;
     color: inherit;
     padding: 0;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
 }
