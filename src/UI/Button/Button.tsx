@@ -26,7 +26,6 @@ export function Button({
             href={href}
             onClick={onClick}
             role="button"
-            tabIndex={0}
         >
             {children}
         </a>

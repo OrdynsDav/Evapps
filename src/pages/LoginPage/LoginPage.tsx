@@ -2,6 +2,7 @@ import { Header } from "../../UI/Header/Header";
 import type { FormButtonProps, FormInputProps } from "../../UI/interfaces";
 import { Form } from "../../UI/Form/Form";
 import "./LoginPage.css";
+import { useEffect } from "react";
 
 export default function LoginPage() {
     const registerInputs: FormInputProps[] = [
@@ -42,6 +43,9 @@ export default function LoginPage() {
             },
         },
     ];
+    useEffect(() => {
+        document.title = "Evapps \u00A0\u2013\u00A0 Вход";
+    }, []);
     return (
         <>
             <Header title="Истории ваших путешествий" />

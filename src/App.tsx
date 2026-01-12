@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 import { MainLoader } from "./UI/Loaders/MainLoader/MainLoader";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./api/queryClient";
+import { AuthProvider } from "./providers/AuthProvider";
 
 const LazyHomePage = lazy(() =>
     Promise.all([
@@ -36,14 +37,22 @@ function App() {
     return (
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>
-                <Suspense fallback={<MainLoader />}>
-                    <Routes>
-                        <Route index path="/" element={<LazyHomePage />} />
-                        <Route path="/new-post" element={<LazyPostPage />} />
-                        <Route path="/login" element={<LazyLoginPage />} />
-                        <Route path="/register" element={<LazyRegisterPage />} />
-                    </Routes>
-                </Suspense>
+                <AuthProvider>
+                    <Suspense fallback={<MainLoader />}>
+                        <Routes>
+                            <Route index path="/" element={<LazyHomePage />} />
+                            <Route
+                                path="/new-post"
+                                element={<LazyPostPage />}
+                            />
+                            <Route path="/login" element={<LazyLoginPage />} />
+                            <Route
+                                path="/register"
+                                element={<LazyRegisterPage />}
+                            />
+                        </Routes>
+                    </Suspense>
+                </AuthProvider>
             </BrowserRouter>
         </QueryClientProvider>
     );

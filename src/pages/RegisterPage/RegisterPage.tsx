@@ -1,7 +1,8 @@
 import { Header } from "../../UI/Header/Header";
 import type { FormButtonProps, FormInputProps } from "../../UI/interfaces";
 import { Form } from "../../UI/Form/Form";
-import "./RegisterPage.css"
+import "./RegisterPage.css";
+import { useEffect } from "react";
 
 export default function RegisterPage() {
     const registerInputs: FormInputProps[] = [
@@ -11,7 +12,7 @@ export default function RegisterPage() {
             size: "large",
             input: "input",
             type: "email",
-            placeholder: "Email"
+            placeholder: "Email",
         },
         {
             id: 2,
@@ -19,7 +20,7 @@ export default function RegisterPage() {
             size: "small",
             input: "input",
             type: "password",
-            placeholder: "Пароль"
+            placeholder: "Пароль",
         },
         {
             id: 3,
@@ -27,21 +28,25 @@ export default function RegisterPage() {
             size: "small",
             input: "input",
             type: "password",
-            placeholder: "Повторите пароль"
+            placeholder: "Повторите пароль",
         },
-    ]
+    ];
     const registerButtons: FormButtonProps[] = [
         {
             id: 1,
             className: "form__submit",
             content: {
                 text: "Зарегистрироваться",
-            }
-        }
-    ]
+            },
+        },
+    ];
+
+    useEffect(() => {
+        document.title = "Evapps \u00A0\u2013\u00A0 Регистрация";
+    }, []);
     return (
         <>
-            <Header title="Истории ваших путешествий"/>
+            <Header title="Истории ваших путешествий" />
             <main>
                 <section className="register">
                     <div className="container">
@@ -56,5 +61,5 @@ export default function RegisterPage() {
                 </section>
             </main>
         </>
-    )
+    );
 }

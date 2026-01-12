@@ -1,0 +1,156 @@
+.skeleton-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.skeleton {
+    /* Общий цвет для блоков внутри скетелона */
+    --skeleton-bg-color: #6a6a6a;
+    /* Внутренний отступ для текста внутри карточки */
+    --padding: 25px;
+
+    /* Общие параметры карточки карточки */
+    --card-height: 552px;
+    --card-border-radius: 10px;
+
+    /* Параметры для анимации загрузки */
+    --blur-width: 600%;
+    --blur-height: 200%;
+    --blur-start-position: 130%;
+    --blur-end-position: 0%;
+    --blur-background: linear-gradient(130deg,
+            transparent 0,
+            transparent 35%,
+            #18191c99 40%,
+            #18191ce6 50%,
+            #18191c99 60%,
+            transparent 70%,
+            transparent 100%);
+
+    /* Параметры для скелетона картинки */
+    --image-width: 100%;
+    --image-height: 288px;
+    --image-x: 0px;
+    --image-y: 0px;
+    --image-position: var(--image-x) var(--image-y);
+    --image-skeleton: linear-gradient(var(--skeleton-bg-color), var(--skeleton-bg-color));
+
+    /* Параметры для скелетона заголовка */
+    --title-width: calc(100% - var(--padding) - var(--padding));
+    --title-height: 24px;
+    --title-border-radius: 6px;
+    --title-x: var(--padding);
+    --title-y: calc(var(--image-height) + 26px);
+    --title-position: var(--title-x) var(--title-y);
+    --title-skeleton: linear-gradient(var(--skeleton-bg-color), var(--skeleton-bg-color));
+    --title-margin-bottom: 20px;
+
+    /* Общие параметры скелетонов для текстовых блоков */
+    --text-gap: 10px;
+    --text-line-height: 14px;
+
+    /* Параметры для скелетона первой строки текста */
+    --text-line-first-width: calc(100% - var(--padding) - var(--padding));
+    --text-line-first-height: var(--text-line-height);
+    --text-line-first-x: var(--padding);
+    --text-line-first-y: calc(var(--title-y) + var(--title-height) + var(--title-margin-bottom));
+    --text-line-first-position: var(--text-line-first-x) var(--text-line-first-y);
+    --text-line-first-skeleton: linear-gradient(var(--skeleton-bg-color), var(--skeleton-bg-color));
+
+    /* Параметры для скелетона второй строки текста */
+    --text-line-second-width: calc(100% - var(--padding) - var(--padding));
+    --text-line-second-height: var(--text-line-height);
+    --text-line-second-x: var(--padding);
+    --text-line-second-y: calc(var(--text-line-first-y) + var(--text-line-first-height) + var(--text-gap));
+    --text-line-second-position: var(--text-line-second-x) var(--text-line-second-y);
+    --text-line-second-skeleton: linear-gradient(var(--skeleton-bg-color), var(--skeleton-bg-color)); 
+
+    /* Параметры для скелетона третьей строки текста */
+    --text-line-third-width: calc(100% - var(--padding) - var(--padding));
+    --text-line-third-height: var(--text-line-height);
+    --text-line-third-x: var(--padding);
+    --text-line-third-y: calc(var(--text-line-second-y) + var(--text-line-second-height) + var(--text-gap));
+    --text-line-third-position: var(--text-line-third-x) var(--text-line-third-y);
+    --text-line-third-skeleton: linear-gradient(var(--skeleton-bg-color), var(--skeleton-bg-color)); 
+
+    /* Параметры для скелетона четвертой строки текста */
+    --text-line-fourth-width: 180px;
+    --text-line-fourth-height: var(--text-line-height);
+    --text-line-fourth-x: var(--padding);
+    --text-line-fourth-y: calc(var(--card-height) - var(--padding) - var(--text-gap) - 25px);
+    --text-line-fourth-position: var(--text-line-fourth-x) var(--text-line-fourth-y);
+    --text-line-fourth-skeleton: linear-gradient(var(--skeleton-bg-color), var(--skeleton-bg-color));
+    
+    /* Параметры для скелетона пятой строки текста */
+    --text-line-fifth-width: 78px;
+    --text-line-fifth-height: var(--text-line-height);
+    --text-line-fifth-x: var(--padding);
+    --text-line-fifth-y: calc(var(--card-height) - var(--padding) - var(--text-gap));
+    --text-line-fifth-position: var(--text-line-fifth-x) var(--text-line-fifth-y);
+    --text-line-fifth-skeleton: linear-gradient(var(--skeleton-bg-color), var(--skeleton-bg-color)); 
+
+    height: var(--card-height);
+    box-shadow: 0px 1px 10px 0px #0000001A;
+    border-radius: var(--card-border-radius);
+
+    /* Цвет фона */
+    background-color: #5F377D33;
+    /* no-repeat нужен, чтобы скелетоны вложенных блоков не повторялись */
+    background-repeat: no-repeat;
+
+    /* Задаём цвет и форму вложенных блоков */
+    background-image:
+        var(--blur-background),
+        var(--image-skeleton),
+        var(--title-skeleton),
+        var(--text-line-first-skeleton) ,
+        var(--text-line-second-skeleton),
+        var(--text-line-third-skeleton),
+        var(--text-line-fourth-skeleton),
+        var(--text-line-fifth-skeleton);
+
+    /* Задаём размеры вложенных блоков */
+    background-size:
+        var(--blur-width) var(--blur-height),
+        var(--image-width) var(--image-height),
+        var(--title-width) var(--title-height),
+        var(--text-line-first-width) var(--text-line-first-height) ,
+        var(--text-line-second-width) var(--text-line-second-height),
+        var(--text-line-third-width) var(--text-line-third-height),
+        var(--text-line-fourth-width) var(--text-line-fourth-height),
+        var(--text-line-fifth-width) var(--text-line-fifth-height);
+
+    /* Задаём расположение вложенных блоков */
+    background-position:
+        var(--blur-start-position),
+        var(--image-position),
+        var(--title-position),
+        var(--text-line-first-position) ,
+        var(--text-line-second-position),
+        var(--text-line-third-position),
+        var(--text-line-fourth-position),
+        var(--text-line-fifth-position);
+
+    /* Добавляем анимацию загрузки */
+    animation: loading 1.8s ease-in infinite;
+}
+
+/*
+  Анимация загрузки работает за счет сдвига блюра.
+  Все остальные блоки неподвижны: не меняют своей позиции.*/
+
+@keyframes loading {
+    to {
+        background-position:
+            var(--blur-end-position),
+            var(--image-position),
+            var(--title-position),
+            var(--text-line-first-position),
+            var(--text-line-second-position),
+            var(--text-line-third-position),
+            var(--text-line-fourth-position),
+            var(--text-line-fifth-position);
+    }
+}

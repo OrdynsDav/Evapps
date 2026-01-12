@@ -69,7 +69,12 @@ export default function PostPage() {
                 <div className="new-post">
                     <div className="container">
                         <div className="new-post__wrapper">
-                            <Form inputs={postInputs} buttons={postButtons} title="Добавление истории о путешествии" upload/>
+                            <Form
+                                inputs={postInputs}
+                                buttons={postButtons}
+                                title="Добавление истории о&nbsp;путешествии"
+                                upload
+                            />
                         </div>
                     </div>
                 </div>

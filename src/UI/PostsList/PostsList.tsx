@@ -2,13 +2,13 @@ import { useGetPosts } from "../../api/hooks";
 import { Post } from "../Post/Post";
 import "./PostsList.css";
 import { useEffect, useRef, useState } from "react";
+import { Skeleton } from "./skeleton/skeleton";
 
 export function PostsList() {
     const { data, isPending, error } = useGetPosts();
     const [visibleCount, setVisibleCount] = useState(6);
 
     const loader = useRef<HTMLLIElement>(null);
-
 
     useEffect(() => {
         if (!data) return;
@@ -37,7 +37,7 @@ export function PostsList() {
     }, [data]);
 
     if (isPending) {
-        return <></>;
+        return <Skeleton count={3} />;
     }
 
     if (!data) {
@@ -59,7 +59,7 @@ export function PostsList() {
                     </li>
                 ))}
 
-            {/* Этот элемент "ловит", когда пользователь доскроллил */}
+            {/* Этот элемент "ловит", когда пользователь доскроллил  */}
             {visibleCount < data.length && (
                 <li ref={loader} style={{ height: "100px" }}></li>
             )}

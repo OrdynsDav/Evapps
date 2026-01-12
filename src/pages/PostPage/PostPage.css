@@ -5,5 +5,5 @@
     display: flex;
     justify-content: center;
     padding: 28px;
-    height: 739px;
+    min-height: 739px;
 }

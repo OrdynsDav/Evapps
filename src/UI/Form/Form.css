@@ -1,5 +1,6 @@
 .form {
-    width: 695px;
+    max-width: 695px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -64,6 +65,7 @@
     padding: 5px 12px;
     border-radius: 2px;
     height: 32px;
+    width: 100%;
 }
 
 .form__input--large {
