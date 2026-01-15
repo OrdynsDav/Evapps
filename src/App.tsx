@@ -4,6 +4,7 @@ import { MainLoader } from "./UI/Loaders/MainLoader/MainLoader";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./api/queryClient";
 import { AuthProvider } from "./providers/AuthProvider";
+import { useAuthStore } from "./store/store";
 
 const LazyHomePage = lazy(() =>
     Promise.all([
@@ -34,6 +35,8 @@ const LazyRegisterPage = lazy(() =>
 );
 
 function App() {
+    const {isAuth, user, token} = useAuthStore()
+    console.log('Auth:', isAuth, 'User:', user, 'Token:', token);
     return (
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>

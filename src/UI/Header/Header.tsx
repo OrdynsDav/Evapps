@@ -1,6 +1,7 @@
 import "./Header.css";
 import { Logo } from "../Icons/Logo";
 import { useAuthStore } from "../../store/store";
+import { uuidv7 } from "zod";
 
 export function Header({
     title,
@@ -20,7 +21,7 @@ export function Header({
                     </a>
                     {isAuth ? (
                         <button className="header__btn" type="button">
-                            {user?.full_name}
+                            {user?.full_name !== "" ? user?.full_name : `user-${Math.random()}`}
                         </button>
                     ) : (
                         <a className="header__btn" href="/login">

@@ -3,6 +3,8 @@ import { Arrow } from "../../UI/Icons/Arrow";
 import type { FormButtonProps, FormInputProps } from "../../UI/interfaces";
 import { Form } from "../../UI/Form/Form";
 import "./PostPage.css";
+import { NewPostSchema } from "../schemas";
+import { useEffect } from "react";
 
 export default function PostPage() {
     const postInputs: FormInputProps[] = [
@@ -13,6 +15,7 @@ export default function PostPage() {
             input: "input",
             type: "text",
             placeholder: "Заголовок",
+            name: "title",
         },
         {
             id: 2,
@@ -21,6 +24,7 @@ export default function PostPage() {
             input: "input",
             type: "text",
             placeholder: "Страна",
+            name: "country",
         },
         {
             id: 3,
@@ -29,6 +33,7 @@ export default function PostPage() {
             input: "input",
             type: "text",
             placeholder: "Город",
+            name: "city",
         },
         {
             id: 4,
@@ -36,6 +41,7 @@ export default function PostPage() {
             size: "large",
             input: "textarea",
             placeholder: "Добавьте описание вашей истории",
+            name: "description",
         },
     ];
 
@@ -62,6 +68,10 @@ export default function PostPage() {
         },
     ];
 
+    useEffect(() => {
+        document.title = "Evapps \u00A0\u2013\u00A0 Новый пост";
+    }, []);
+
     return (
         <>
             <Header title="Истории ваших путешествий" />
@@ -74,6 +84,8 @@ export default function PostPage() {
                                 buttons={postButtons}
                                 title="Добавление истории о&nbsp;путешествии"
                                 upload
+                                type="post"
+                                schema={NewPostSchema}
                             />
                         </div>
                     </div>

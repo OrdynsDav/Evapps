@@ -1,16 +1,11 @@
-export interface IUser {
-    id: number;
-    full_name: string;
-    city: string;
-    country: string;
-    bio: string;
-}
+import type { User } from "../models/User";
 
 export interface AuthState {
     isAuth: boolean;
-    user: IUser | null;
-    login: (user: IUser) => void;
+    user: User | null;
+    token: string | null;
+    auth: (token: string) => void;
     logout: () => void;
-    register: (user: IUser) => void;
     initializeAuth: () => void;
+    setUser(user: User): void;
 }

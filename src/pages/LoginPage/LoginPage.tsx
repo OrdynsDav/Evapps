@@ -3,9 +3,10 @@ import type { FormButtonProps, FormInputProps } from "../../UI/interfaces";
 import { Form } from "../../UI/Form/Form";
 import "./LoginPage.css";
 import { useEffect } from "react";
+import { LoginSchema } from "../schemas";
 
 export default function LoginPage() {
-    const registerInputs: FormInputProps[] = [
+    const loginrInputs: FormInputProps[] = [
         {
             id: 1,
             label: "Логин",
@@ -13,6 +14,7 @@ export default function LoginPage() {
             input: "input",
             type: "text",
             placeholder: "Email",
+            name: "email",
         },
         {
             id: 2,
@@ -21,10 +23,11 @@ export default function LoginPage() {
             input: "input",
             type: "password",
             placeholder: "Пароль",
+            name: "password",
         },
     ];
 
-    const registerButtons: FormButtonProps[] = [
+    const loginButtons: FormButtonProps[] = [
         {
             id: 1,
             className: "form__register",
@@ -41,6 +44,7 @@ export default function LoginPage() {
             content: {
                 text: "Войти",
             },
+            type: "submit",
         },
     ];
     useEffect(() => {
@@ -54,9 +58,11 @@ export default function LoginPage() {
                     <div className="container">
                         <div className="login__wrapper">
                             <Form
-                                inputs={registerInputs}
-                                buttons={registerButtons}
+                                inputs={loginrInputs}
+                                buttons={loginButtons}
+                                schema={LoginSchema}
                                 title="Вход в профиль"
+                                type="login"
                             />
                         </div>
                     </div>

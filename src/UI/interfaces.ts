@@ -1,3 +1,5 @@
+import type { ZodObject, ZodRawShape } from "zod";
+
 export interface ButtonProps {
     children?: React.ReactNode;
     onClick?: () => void;
@@ -7,6 +9,7 @@ export interface ButtonProps {
     variant?: "fill" | "transparent";
     option?: "button" | "link";
     href?: string;
+    type?: "button" | "submit" | "reset"
 }
 
 export interface FormButtonProps {
@@ -20,6 +23,7 @@ export interface FormButtonProps {
         text?: string;
     };
     disabled?: boolean;
+    type?: "button" | "submit" | "reset"
 }
 
 export interface FormInputProps {
@@ -29,11 +33,14 @@ export interface FormInputProps {
     input: "input" | "textarea";
     placeholder: string;
     type?: string;
+    name: string;
 }
 
-export interface FormProps {
-    buttons: FormButtonProps[];
+export type FormProps = {
     inputs: FormInputProps[];
+    buttons: FormButtonProps[];
     title: string;
     upload?: boolean;
-}
+    schema: ZodObject<ZodRawShape>;
+    type: 'post' | 'register' | 'login';
+};
